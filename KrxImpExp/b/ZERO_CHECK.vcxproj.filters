@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\matmi\source\repos\kerraxNew\KrxImpExp\b\CMakeFiles\3080c0a5859b1a938dcb871471fa8daa\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{C673BB07-B6BF-3AF1-AF39-57CE1830E687}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

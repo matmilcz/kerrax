@@ -1,0 +1,3 @@
+C:/Users/matmi/source/repos/kerraxNew/KrxImpExp/MaxAscImporter/CMakeFiles/0KrxAscImp.dll.dir
+C:/Users/matmi/source/repos/kerraxNew/KrxImpExp/MaxAscImporter/CMakeFiles/ALL_BUILD.dir
+C:/Users/matmi/source/repos/kerraxNew/KrxImpExp/MaxAscImporter/CMakeFiles/ZERO_CHECK.dir
