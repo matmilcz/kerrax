@@ -2,28 +2,24 @@ cmake_minimum_required(VERSION 3.15.2)
 
 project(IPhysique)
 
-set(MAXSDK_18 "C:/Users/matmi/source/3ds Max 2018 SDK/maxsdk")
-set(WINSDK "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.18362.0/um/arm64") # TODO: change to proper path
+set(MAXSDK_18 "$ENV{MAXSDK_11}/maxsdk")
+#set(WINSDK "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.10586.0/um/x64")
 
 set(LIB_NAME "IPhysiqueLib")
 set(IPHYSIQUE_SRC_PATH "src/IPhysique")
-set(DEF_FILE "${IPHYSIQUE_SRC_PATH}/PhyExport.def")
 
-include_directories(PUBLIC "${IPHYSIQUE_SRC_PATH}")
-				#"$ENV{MAXSDK_11}/include"
-				#"$ENV{MAXSDK_11}/include/CS"
+include_directories(PUBLIC "${IPHYSIQUE_SRC_PATH}"
+						   "${MAXSDK_18}/include"
+						   "${MAXSDK_18}/include/CS")
 
-link_directories("$ENV{MAXSDK_11}/lib/x64/Release")
-
-#file (GLOB SOURCES "src/Physique/*.cpp")
-#add_library("${LIB_NAME}" SHARED ${SOURCES}
-#								 ${DEF_FILE})
+link_directories("${MAXSDK_18}/lib/x64/Release")
+				 #"${WINSDK}")
 						
 add_library("${LIB_NAME}" SHARED "${IPHYSIQUE_SRC_PATH}/DllEntry.cpp"
 								 "${IPHYSIQUE_SRC_PATH}/PhyExport.cpp"
 								 "${IPHYSIQUE_SRC_PATH}/PublishedInterface.cpp"
 								 "${IPHYSIQUE_SRC_PATH}/StdHeaders.cpp"
-								 "${DEF_FILE}")
+								 "${IPHYSIQUE_SRC_PATH}/PhyExport.def")
 
 set_target_properties("${LIB_NAME}" PROPERTIES LINKER_LANGUAGE CXX)
 
