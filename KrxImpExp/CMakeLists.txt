@@ -10,6 +10,8 @@ set(IPHYSIQUE_SRC_PATH "src/IPhysique")
 set(DEF_FILE "${IPHYSIQUE_SRC_PATH}/PhyExport.def")
 
 include_directories(PUBLIC "${IPHYSIQUE_SRC_PATH}")
+				#"$ENV{MAXSDK_11}/include"
+				#"$ENV{MAXSDK_11}/include/CS"
 
 link_directories("$ENV{MAXSDK_11}/lib/x64/Release")
 
