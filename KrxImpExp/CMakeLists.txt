@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.15.2)
 
 project(IPhysique)
 
-set(MAXSDK_18 "$ENV{MAXSDK_11}/maxsdk")
+set(MAXSDK_18 "$ENV{MAXSDK_18}/maxsdk")
 #set(WINSDK "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.10586.0/um/x64")
 
 set(LIB_NAME "IPhysiqueLib")
