@@ -33,6 +33,5 @@ target_link_libraries("${LIB_NAME}" comctl32.lib
 									mesh.lib
 									poly.lib
 									maxutil.lib
-									helpsys.lib
 									gup.lib
 									paramblk2.lib)
