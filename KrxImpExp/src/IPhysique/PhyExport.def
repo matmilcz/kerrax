@@ -1,4 +1,4 @@
-LIBRARY IPhysique.gup
+LIBRARY IPhysiqueLib.dll
 EXPORTS
 	LibDescription			@1
 	LibNumberClasses		@2
