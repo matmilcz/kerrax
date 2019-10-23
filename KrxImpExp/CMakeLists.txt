@@ -23,7 +23,9 @@ add_library("${LIB_NAME}" SHARED "${IPHYSIQUE_SRC_PATH}/DllEntry.cpp"
 
 set_target_properties("${LIB_NAME}" PROPERTIES LINKER_LANGUAGE CXX)
 
-add_compile_definitions(_RELEASE)
+add_compile_definitions(_RELEASE
+						UNICODE
+						_UNICODE)
 								 
 target_link_libraries("${LIB_NAME}" comctl32.lib
 									core.lib
