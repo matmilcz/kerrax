@@ -5,7 +5,7 @@
 
 // FP interface descriptor - FnPub-published methods & properties
 //****************************************************************
-static IPhysiqueInterface iPhysiqueInterface (IPHYSIQUEINTERFACE, _T("physiqueOps"), 0, NULL, FP_CORE + FP_STATIC_METHODS,
+static IPhysiqueInterface iPhysiqueInterface (IPHYSIQUEINTERFACE, _M("physiqueOps"), 0, NULL, FP_CORE + FP_STATIC_METHODS,
 	//methods
 	IPhysiqueInterface::checkMatrix, _T("checkMatrix"), 0, TYPE_BOOL, 0, 2,
 		_T("physiqued_Node"), 0, TYPE_INODE,
@@ -172,14 +172,14 @@ Modifier* IPhysiqueInterface::FindPhysiqueModifier (INode* nodePtr, int modIndex
 	}
 
 	// Not found.
-	throw MAXException(_T("No physique modifier found"));
+	throw MAXException(_M("No physique modifier found"));
 	return NULL;
 }
 
 BOOL IPhysiqueInterface::CheckMatrix(INode* node, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 	
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -210,7 +210,7 @@ Matrix3 IPhysiqueInterface::GetInitialNodeTM(INode* node, ReferenceTarget* mod)
 {
 
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 	
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -226,11 +226,11 @@ Matrix3 IPhysiqueInterface::GetInitialNodeTM(INode* node, ReferenceTarget* mod)
 		switch (msg)
 		{
 			case NODE_NOT_FOUND:
-				throw MAXException(_T("Node not found"));
+				throw MAXException(_M("Node not found"));
 			case NO_MATRIX_SAVED:
-				throw MAXException(_T("No matrix saved"));
+				throw MAXException(_M("No matrix saved"));
 			case INVALID_MOD_POINTER:
-				throw MAXException(_T("Invalid modifier pointer"));
+				throw MAXException(_M("Invalid modifier pointer"));
 			default: 
 				break;
 		}
@@ -244,14 +244,14 @@ Matrix3 IPhysiqueInterface::GetInitialBoneTM(INode* node, int index, ReferenceTa
 {
 
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 	
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
 
 	//get the list of bones
 	Tab<INode*> bones = GetBoneList(node);
-	if (index <0 || index >= bones.Count()) throw MAXException(_T("The Bone index is not in the valid range"));
+	if (index <0 || index >= bones.Count()) throw MAXException(_M("The Bone index is not in the valid range"));
 
 	//get the node's initial transformation matrix and store it in a matrix3
 	Matrix3 initTM = Matrix3(TRUE);
@@ -264,11 +264,11 @@ Matrix3 IPhysiqueInterface::GetInitialBoneTM(INode* node, int index, ReferenceTa
 		switch (msg)
 		{
 			case NODE_NOT_FOUND:
-				throw MAXException(_T("Node not found"));
+				throw MAXException(_M("Node not found"));
 			case NO_MATRIX_SAVED:
-				throw MAXException(_T("No matrix saved"));
+				throw MAXException(_M("No matrix saved"));
 			case INVALID_MOD_POINTER:
-				throw MAXException(_T("Invalid modifier pointer"));
+				throw MAXException(_M("Invalid modifier pointer"));
 			default: 
 				break;
 		}
@@ -294,7 +294,7 @@ Tab<INode*> IPhysiqueInterface::GetBoneList(INode* node, ReferenceTarget* mod)
 	INode* bone;
 
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -404,7 +404,7 @@ Tab<INode*> IPhysiqueInterface::GetBoneList(INode* node, ReferenceTarget* mod)
 int IPhysiqueInterface::GetAPIVersion(INode* node, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -417,7 +417,7 @@ int IPhysiqueInterface::GetAPIVersion(INode* node, ReferenceTarget* mod)
 void IPhysiqueInterface::SetInitialPose(INode* node, bool set, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -430,7 +430,7 @@ void IPhysiqueInterface::SetInitialPose(INode* node, bool set, ReferenceTarget* 
 int IPhysiqueInterface::GetVertexCount(INode* node, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -449,7 +449,7 @@ int IPhysiqueInterface::GetVertexCount(INode* node, ReferenceTarget* mod)
 int IPhysiqueInterface::GetVertexType(INode* node, int vertIndex, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -462,7 +462,7 @@ int IPhysiqueInterface::GetVertexType(INode* node, int vertIndex, ReferenceTarge
 	{ 
 		phyExport->ReleaseContextInterface(mcExport);
 		mod->ReleaseInterface(I_PHYINTERFACE, phyExport);
-		throw MAXException(_T("No vertex interface found")); 
+		throw MAXException(_M("No vertex interface found")); 
 	} 
 
 	int type = vi->GetVertexType();
@@ -477,7 +477,7 @@ int IPhysiqueInterface::GetVertexType(INode* node, int vertIndex, ReferenceTarge
 int IPhysiqueInterface::GetVertexBoneCount(INode* node, int vertIndex, bool rigid, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -486,7 +486,7 @@ int IPhysiqueInterface::GetVertexBoneCount(INode* node, int vertIndex, bool rigi
 	IPhyContextExport *mcExport = (IPhyContextExport *)phyExport->GetContextInterface(node);
 
 	if (vertIndex < 0 || vertIndex >= mcExport->GetNumberVertices())
-		throw MAXException(_T("The vertex index is not in the valid range"));
+		throw MAXException(_M("The vertex index is not in the valid range"));
 
 	mcExport->ConvertToRigid(rigid);
 	int count = 0;
@@ -505,7 +505,7 @@ int IPhysiqueInterface::GetVertexBoneCount(INode* node, int vertIndex, bool rigi
 				count += ((IPhyBlendedRigidVertex*)vi)->GetNumberNodes();
 				break;
 			case DEFORMABLE_BLENDED_TYPE:
-				throw MAXException(_T("Not a currently supported type"));
+				throw MAXException(_M("Not a currently supported type"));
 				break;
 			case FLOATING_TYPE:
 				count += ((IPhyFloatingVertex*)vi)->GetNumberNodes();
@@ -525,7 +525,7 @@ int IPhysiqueInterface::GetVertexBoneCount(INode* node, int vertIndex, bool rigi
 Tab<INode*> IPhysiqueInterface::GetVertexBones(INode* node, int vertIndex, bool rigid, bool blending, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -536,7 +536,7 @@ Tab<INode*> IPhysiqueInterface::GetVertexBones(INode* node, int vertIndex, bool 
 	mcExport->AllowBlending(blending);
 	
 	if (vertIndex < 0 || vertIndex >= mcExport->GetNumberVertices())
-		throw MAXException(_T("The vertex index is not in the valid range"));
+		throw MAXException(_M("The vertex index is not in the valid range"));
 
 	INode* bone = NULL;
 	Tab<INode*> bones;
@@ -566,7 +566,7 @@ Tab<INode*> IPhysiqueInterface::GetVertexBones(INode* node, int vertIndex, bool 
 				bones.Append(1, &bone);
 				break;
 			case DEFORMABLE_BLENDED_TYPE:
-				throw MAXException(_T("Not a currently supported type"));
+				throw MAXException(_M("Not a currently supported type"));
 				break;
 			case FLOATING_TYPE:
 				count += ((IPhyFloatingVertex*)vi)->GetNumberNodes();
@@ -591,7 +591,7 @@ INode* IPhysiqueInterface::GetVertexBone(INode* node, int vertIndex, int boneInd
 {
 	Tab<INode*> bones = GetVertexBones(node, vertIndex, rigid, blending, mod);
 	if (boneIndex < 0 || boneIndex >= bones.Count())
-		throw MAXException(_T("The bone index is not in the valid range"));
+		throw MAXException(_M("The bone index is not in the valid range"));
 
 	return bones[boneIndex];
 }
@@ -599,7 +599,7 @@ INode* IPhysiqueInterface::GetVertexBone(INode* node, int vertIndex, int boneInd
 Point3 IPhysiqueInterface::GetVertexOffset(INode* node, int vertIndex, int boneIndex, bool rigid, bool blending, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -610,7 +610,7 @@ Point3 IPhysiqueInterface::GetVertexOffset(INode* node, int vertIndex, int boneI
 	mcExport->AllowBlending(blending);
 	
 	if (vertIndex < 0 || vertIndex >= mcExport->GetNumberVertices())
-		throw MAXException(_T("The vertex index is not in the valid range"));
+		throw MAXException(_M("The vertex index is not in the valid range"));
 
 	Point3 offset = Point3(0,0,0);
 	Tab<Point3> offsetTab;
@@ -640,7 +640,7 @@ Point3 IPhysiqueInterface::GetVertexOffset(INode* node, int vertIndex, int boneI
 				offsetTab.Append(1, &offset);
 				break;
 			case DEFORMABLE_BLENDED_TYPE:
-				throw MAXException(_T("Not a currently supported type"));
+				throw MAXException(_M("Not a currently supported type"));
 				break;
 			case FLOATING_TYPE:
 				count += ((IPhyFloatingVertex*)vi)->GetNumberNodes();
@@ -660,7 +660,7 @@ Point3 IPhysiqueInterface::GetVertexOffset(INode* node, int vertIndex, int boneI
 	mod->ReleaseInterface(I_PHYINTERFACE, phyExport);
 
 	if (boneIndex < 0 || boneIndex >= offsetTab.Count())
-		throw MAXException(_T("The bone index is not in the valid range"));
+		throw MAXException(_M("The bone index is not in the valid range"));
 	
 	return offsetTab[boneIndex];
 }
@@ -668,7 +668,7 @@ Point3 IPhysiqueInterface::GetVertexOffset(INode* node, int vertIndex, int boneI
 Point3 IPhysiqueInterface::GetVertexDeformableOffset(INode* node, int vertIndex, ReferenceTarget* mod, TimeValue t)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -677,7 +677,7 @@ Point3 IPhysiqueInterface::GetVertexDeformableOffset(INode* node, int vertIndex,
 	IPhyContextExport *mcExport = (IPhyContextExport *)phyExport->GetContextInterface(node);
 	
 	if (vertIndex < 0 || vertIndex >= mcExport->GetNumberVertices())
-		throw MAXException(_T("The vertex index is not in the valid range"));
+		throw MAXException(_M("The vertex index is not in the valid range"));
 
 	Point3 offset = Point3(0,0,0);
 
@@ -695,7 +695,7 @@ Point3 IPhysiqueInterface::GetVertexDeformableOffset(INode* node, int vertIndex,
 				offset = ((IPhyDeformableOffsetVertex*)vi)->GetDeformOffsetVector(t);
 				break;
 			case DEFORMABLE_BLENDED_TYPE:
-				throw MAXException(_T("Not a currently supported type"));
+				throw MAXException(_M("Not a currently supported type"));
 				break;
 		}
 		mcExport->ReleaseVertexInterface(vi);
@@ -709,7 +709,7 @@ Point3 IPhysiqueInterface::GetVertexDeformableOffset(INode* node, int vertIndex,
 float IPhysiqueInterface::GetVertexWeight(INode* node, int vertIndex, int boneIndex, bool rigid, bool blending, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	//get a pointer to the export interface
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
@@ -720,7 +720,7 @@ float IPhysiqueInterface::GetVertexWeight(INode* node, int vertIndex, int boneIn
 	mcExport->AllowBlending(blending);
 	
 	if (vertIndex < 0 || vertIndex >= mcExport->GetNumberVertices())
-		throw MAXException(_T("The vertex index is not in the valid range"));
+		throw MAXException(_M("The vertex index is not in the valid range"));
 
 	//Point3 offset = Point3(0,0,0);
 	//Tab<Point3> offsetTab;
@@ -749,7 +749,7 @@ float IPhysiqueInterface::GetVertexWeight(INode* node, int vertIndex, int boneIn
 				}
 				break;
 			case DEFORMABLE_BLENDED_TYPE:
-				throw MAXException(_T("Not a currently supported type"));
+				throw MAXException(_M("Not a currently supported type"));
 				break;
 			case FLOATING_TYPE:
 				normalizedWeight = 0.0f;
@@ -773,7 +773,7 @@ float IPhysiqueInterface::GetVertexWeight(INode* node, int vertIndex, int boneIn
 	mod->ReleaseInterface(I_PHYINTERFACE, phyExport);
 
 	if (boneIndex < 0 || boneIndex >= count)
-		throw MAXException(_T("The bone index is not in the valid range"));
+		throw MAXException(_M("The bone index is not in the valid range"));
 	
 	return normalizedWeight;
 }
@@ -784,7 +784,7 @@ bool IPhysiqueInterface::SetFigureMode(INode* node, bool state, ReferenceTarget*
 	INode* bone;
 
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueExport *phyExport = (IPhysiqueExport *)mod->GetInterface(I_PHYINTERFACE);
 	IPhyContextExport *mcExport = (IPhyContextExport *)phyExport->GetContextInterface(node);
@@ -887,7 +887,7 @@ bool IPhysiqueInterface::BipedFigureMode(INode* node, bool state)
 bool IPhysiqueInterface::AttachToNode(INode* node, INode* rootNode, ReferenceTarget* mod, TimeValue t)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueImport *phyImport = (IPhysiqueImport *)mod->GetInterface(I_PHYIMPORT);
 	bool val = false;
@@ -901,7 +901,7 @@ bool IPhysiqueInterface::AttachToNode(INode* node, INode* rootNode, ReferenceTar
 bool IPhysiqueInterface::Initialize(INode* node, INode* rootNode, ReferenceTarget* mod, TimeValue t)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueImport *phyImport = (IPhysiqueImport *)mod->GetInterface(I_PHYIMPORT);
 	bool val = false;
@@ -914,7 +914,7 @@ bool IPhysiqueInterface::Initialize(INode* node, INode* rootNode, ReferenceTarge
 void IPhysiqueInterface::LockVertex(INode* node, int vertexIndex, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueImport *phyImport = (IPhysiqueImport *)mod->GetInterface(I_PHYIMPORT);
 	IPhyContextImport *mcImport = (IPhyContextImport *)phyImport->GetContextInterface(node);
@@ -929,7 +929,7 @@ void IPhysiqueInterface::LockVertex(INode* node, int vertexIndex, ReferenceTarge
 void IPhysiqueInterface::UnLockVertex(INode* node, int vertexIndex, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueImport *phyImport = (IPhysiqueImport *)mod->GetInterface(I_PHYIMPORT);
 	IPhyContextImport *mcImport = (IPhyContextImport *)phyImport->GetContextInterface(node);
@@ -944,7 +944,7 @@ void IPhysiqueInterface::UnLockVertex(INode* node, int vertexIndex, ReferenceTar
 void IPhysiqueInterface::SetVertexBone(INode* node, int vertexIndex, INode* bone, float weight, bool clear, ReferenceTarget* mod)
 {
 	if (!mod) mod = FindPhysiqueModifier(node, 0);
-	if (!mod) throw MAXException(_T("No Physique modifier was found on this node"));
+	if (!mod) throw MAXException(_M("No Physique modifier was found on this node"));
 
 	IPhysiqueImport *phyImport = (IPhysiqueImport *)mod->GetInterface(I_PHYIMPORT);
 	IPhyContextImport *mcImport = (IPhyContextImport *)phyImport->GetContextInterface(node);
