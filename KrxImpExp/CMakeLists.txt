@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 3.15.2)
 
-set(CMAKE_CXX_SYSROOT_FLAG_CODE "list(APPEND CMAKE_CXX_SOURCE_FILE_EXTENSIONS meta)")
-set(CMAKE_CXX_SOURCE_FILE_EXTENSIONS "C;M;c++;cc;cpp;cxx;mm;CPP;meta")
-
 project(Kerrax CXX)
-
-#set(CMAKE_CXX_SOURCE_FILE_EXTENSIONS "C;M;c++;cc;cpp;cxx;mm;CPP;meta")
-message("CMAKE_CXX_SOURCE_FILE_EXTENSIONS ${CMAKE_CXX_SOURCE_FILE_EXTENSIONS}")
 
 set(MAXSDK_18 "$ENV{MAXSDK_18}/maxsdk")
 #set(WINSDK "C:/Program Files (x86)/Windows Kits/10/Lib/10.0.10586.0/um/x64")
@@ -54,14 +48,14 @@ set(METACPP_SRC_PATH "src/MetaCpp")
 set(METAMAXSDK_SRC_PATH "src/MetaMaxSdk")
 set(TSTL_SRC_PATH "src/tstl")
 
-set_source_files_properties("${META_SRC_PATH}/3dsInfoDlgInput.meta" PROPERTIES LANGUAGE CXX)
+#set_source_files_properties("${META_SRC_PATH}/*.*" PROPERTIES LANGUAGE CXX)
 
 add_library("${MAX3DSIMPORTER_OUT}" SHARED "${META_SRC_PATH}/3dsFileLoader.meta"
 										   "${META_SRC_PATH}/3dsImporter.meta"
 										   "${META_SRC_PATH}/3dsImporterDefs.meta"
 										   "${META_SRC_PATH}/3dsImporterDlgInput.meta"
 										   "${META_SRC_PATH}/3dsImporterDlgOutput.meta"
-										   "${META_SRC_PATH}/3dsInfoDlgInput.meta"
+										   #"${META_SRC_PATH}/3dsInfoDlgInput.meta"
 										   "${META_SRC_PATH}/3dsReadChunk.meta"
 										   "${META_SRC_PATH}/File.meta"
 										   "${META_SRC_PATH}/ImpExpPathes.meta"
