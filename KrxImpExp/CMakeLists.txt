@@ -23,6 +23,8 @@ add_library("${IPHYSIQUE_OUT}" SHARED "${IPHYSIQUE_SRC_PATH}/DllEntry.cpp"
 									  "${IPHYSIQUE_SRC_PATH}/PublishedInterface.cpp"
 									  "${IPHYSIQUE_SRC_PATH}/StdHeaders.cpp"
 									  "${IPHYSIQUE_SRC_PATH}/PhyExport.def")
+									  
+set_target_properties("${IPHYSIQUE_OUT}" PROPERTIES SUFFIX ".dlu")
 
 target_include_directories("${IPHYSIQUE_OUT}" PUBLIC "${IPHYSIQUE_SRC_PATH}"
 													 "${MAXSDK_18}/include"

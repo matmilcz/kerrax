@@ -1,4 +1,4 @@
-LIBRARY IPhysiqueLib.dll
+LIBRARY IPhysiqueLib.dlu
 EXPORTS
 	LibDescription			@1
 	LibNumberClasses		@2
