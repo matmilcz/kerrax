@@ -30,12 +30,12 @@ static std::tstring LCaseStr(const std::tstring& str)
 	
 static int CmpStr(const std::tstring& str1, const std::tstring& str2)
 {
-	return _tcscmp(str1.c_str(), str2.c_str());
+	return wcscmp(str1.c_str(), str2.c_str());
 }
 
 static int ICmpStr(const std::tstring& str1, const std::tstring& str2)
 {
-	return _tcsicmp(str1.c_str(), str2.c_str());
+	return _wcsicmp(str1.c_str(), str2.c_str());
 }
 	
 // Strings
@@ -46,7 +46,7 @@ static int ICmpStr(const std::tstring& str1, const std::tstring& str2)
 template <> struct FC<TSTRING> {typedef const std::tstring& ArgType;};
 
 // Invalid string - a special return value for functions
-#define INVALID_STRING			_T("$$INVALID$$")
+#define INVALID_STRING			_M("$$INVALID$$")
 
 // Gets string length
 #define STRLEN(str)					((int) ((str).length()))
@@ -84,16 +84,16 @@ template<typename DummyType>
 std::tstring ToTString(const char* psz, size_t len)
 {
 	int sz = MultiByteToWideChar(CP_ACP, 0, psz, -1, NULL, 0);
-	std::tstring tstr(sz - 1, _T(' '));
+	std::tstring tstr(sz - 1, _M(' '));
 	MultiByteToWideChar(CP_ACP, 0, psz, -1, &tstr[0], sz);
 	return tstr;
 }
 
 template<typename DummyType>
-std::string ToCString(const TCHAR* psz, size_t len)
+std::string ToCString(const WCHAR* psz, size_t len)
 {
 	int sz = WideCharToMultiByte(CP_ACP, 0, psz, -1, NULL, 0, NULL, FALSE);
-	std::string str(sz - 1, _T(' '));
+	std::string str(sz - 1, _M(' '));
 	WideCharToMultiByte(CP_ACP, 0, psz, -1, &str[0], sz, NULL, FALSE);
 	return str;
 }		
@@ -108,9 +108,9 @@ inline std::tstring ToTString(const std::string& str)
 	return ToTString<float>(str.c_str(), str.length());
 }
 
-inline std::string ToCString(const TCHAR* psz)
+inline std::string ToCString(const WCHAR* psz)
 {
-	return ToCString<float>(psz, _tcslen(psz));
+	return ToCString<float>(psz, wcslen(psz));
 }		
 
 inline std::string ToCString(const std::tstring& tstr)
@@ -118,7 +118,7 @@ inline std::string ToCString(const std::tstring& tstr)
 	return ToCString<float>(tstr.c_str(), tstr.length());
 }		
 
-#define T(text)	std::tstring(_T(text))
+#define T(text)	std::tstring(_M(text))
 
 #else // _UNICODE
 

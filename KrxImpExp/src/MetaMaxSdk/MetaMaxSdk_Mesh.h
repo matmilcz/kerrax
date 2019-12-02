@@ -12,7 +12,7 @@ static INode* NewMeshObj(const std::tstring& name)
 {
 	TriObject* tri = CreateNewTriObject();
 	INode* node = GetInterface()->CreateObjectNode(tri);
-	node->SetName((LPTSTR) (name.c_str()));
+	node->SetName((LPWSTR) (name.c_str()));
 	return node;
 }
 

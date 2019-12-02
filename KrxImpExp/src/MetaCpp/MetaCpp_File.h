@@ -10,17 +10,17 @@
 // Internal functions
 static bool FlExists(const std::tstring& filename)
 {
-	return _taccess(filename.c_str(), 00) == 0;
+	return _waccess(filename.c_str(), 00) == 0;
 }
 
 static void DeleteFl(const std::tstring& filename)
 {
-	_tremove(filename.c_str());
+	_wremove(filename.c_str());
 }
 
 static int GetFlSize(const std::tstring& filename)
 {
-	FILE* strm = _tfopen(filename.c_str(), _T("rb"));
+	FILE* strm = _wfopen(filename.c_str(), _M("rb"));
 	if(!strm) return INVALID_INT;
 	fseek(strm, 0, SEEK_END);
 	int sz = ftell(strm);
@@ -30,7 +30,7 @@ static int GetFlSize(const std::tstring& filename)
 
 static FILE* OpenFl(const std::tstring& filename, const std::tstring& openmode)
 {
-	FILE* strm = _tfopen(filename.c_str(), openmode.c_str());
+	FILE* strm = _wfopen(filename.c_str(), openmode.c_str());
 	return strm;
 }
 

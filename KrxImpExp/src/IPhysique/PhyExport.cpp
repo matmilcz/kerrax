@@ -42,12 +42,12 @@ class PhyExportClassDesc:public ClassDesc2 {
 	public:
 	int 			IsPublic() { return 1; }
 	void *			Create(BOOL loading = FALSE) { return new PhyExport(); }
-	const MCHAR *	ClassName() { return _M("PhyExport"); }
+	const TCHAR *	ClassName() { return _T("PhyExport"); }
 	SClass_ID		SuperClassID() { return GUP_CLASS_ID; }
 	Class_ID		ClassID() { return PHYEXPORT_CLASS_ID; }
-	const MCHAR* 	Category() { return _M("Character Studio Tools"); }
+	const TCHAR* 	Category() { return _T("Character Studio Tools"); }
 
-	const MCHAR*	InternalName() { return _M("PhyExport"); }	// returns fixed parsable name (scripter-visible name)
+	const TCHAR*	InternalName() { return _T("PhyExport"); }	// returns fixed parsable name (scripter-visible name)
 	HINSTANCE		HInstance() { return hInstance; }				// returns owning module handle
 
 };

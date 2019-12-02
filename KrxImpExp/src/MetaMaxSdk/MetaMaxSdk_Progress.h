@@ -52,23 +52,23 @@ static DWORD WINAPI DoNothing(LPVOID arg)
 
 static void ShowProgressBar(const std::tstring& caption, int percent)
 {
-	static std::tstring s_lastCaption = _T("");
+	static std::tstring s_lastCaption = _M("");
 	static int s_lastPercent = -1;
 
 	if(caption != s_lastCaption)
 	{
-		if(caption == _T(""))
+		if(caption == _M(""))
 		{
-			if(s_lastCaption != _T(""))
+			if(s_lastCaption != _M(""))
 			{
 				GetInterface()->ProgressEnd();
-				s_lastCaption = _T("");
+				s_lastCaption = _M("");
 			}
 			return;
 		}
-		if(s_lastCaption == _T(""))
+		if(s_lastCaption == _M(""))
 		{
-			GetInterface()->ProgressStart(_T(""), TRUE, DoNothing, NULL);
+			GetInterface()->ProgressStart(_M(""), TRUE, DoNothing, NULL);
 		}
 		s_lastCaption = caption;
 		s_lastPercent = -1;
@@ -79,13 +79,13 @@ static void ShowProgressBar(const std::tstring& caption, int percent)
 	if(percent != s_lastPercent)
 	{
 		s_lastPercent = percent;
-		GetInterface()->ProgressUpdate(percent, FALSE, (LPTSTR) (caption.c_str()));
+		GetInterface()->ProgressUpdate(percent, FALSE, (LPWSTR) (caption.c_str()));
 	}
 }
 
 static void HideProgressBar()
 {
-	ShowProgressBar(_T(""), 0);
+	ShowProgressBar(_M(""), 0);
 }
 
 

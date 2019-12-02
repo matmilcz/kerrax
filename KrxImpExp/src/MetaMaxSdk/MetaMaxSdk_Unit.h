@@ -43,7 +43,7 @@ static void SetSystemUnit(int unitType)
 				break;
 			case UNITS_MILES: 
 				info.dispType = UNITDISP_CUSTOM; 
-				info.customName = _T("ml"); 
+				info.customName = _M("ml"); 
 				info.customValue = 1.609344f;
 				info.customUnit = UNITS_KILOMETERS;
 				break;

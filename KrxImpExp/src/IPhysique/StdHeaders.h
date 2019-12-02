@@ -9,7 +9,7 @@
 #pragma warning(disable:4101) // unreferenced local variable
 #endif
 
-//#define nullptr (0)
+#define nullptr (0)
 
 // maxsdk headers
 #include "Max.h"

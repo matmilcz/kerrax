@@ -13,7 +13,7 @@ static INode* NewBoneObj(const std::tstring& name, INode* parentBone, const Poin
 	TriObject* tri = CreateNewTriObject();
 	Mesh* msh = &(tri->mesh);
 	INode* node = GetInterface()->CreateObjectNode(tri);
-	node->SetName((LPTSTR) (name.c_str()));
+	node->SetName((LPWSTR) (name.c_str()));
 	if(parentBone)
 		parentBone->AttachChild(node, 1);
 	

@@ -22,7 +22,7 @@ inline std::tstring GetMaterialName(const Mtl* pMtl)
 
 inline void SetMaterialName(Mtl* pMtl, const std::tstring& name)
 {
-	pMtl->SetName( (TCHAR*)(name.c_str()) );
+	pMtl->SetName( (WCHAR*)(name.c_str()) );
 }
 
 static std::tstring GetDiffuseMapFilename(const Mtl* pMtl)
@@ -49,7 +49,7 @@ static std::tstring GetDiffuseMapFilename(const Mtl* pMtl)
 static void SetDiffuseMapFilename(Mtl* pMtl, const std::tstring& mapname)
 {
 	BitmapTex *pBmt = NewDefaultBitmapTex();
-	pBmt->SetMapName((LPTSTR) (mapname.c_str()));
+	pBmt->SetMapName((LPWSTR) (mapname.c_str()));
 	pMtl->SetSubTexmap(ID_DI, pBmt);
 	GetInterface()->ActivateTexture(pBmt, pMtl);
 }	

@@ -18,7 +18,7 @@ static int OSExecute(const std::tstring& cmd)
 	startinfo.cb = sizeof(STARTUPINFO);
 	ZeroMemory( &procinfo, sizeof(PROCESS_INFORMATION) );
   
-	LPTSTR pszCmd = _tcsdup(cmd.c_str());
+	LPWSTR pszCmd = _wcsdup(cmd.c_str());
 	BOOL bOk = CreateProcess(NULL, pszCmd, NULL, NULL, FALSE, 0, NULL, NULL, &startinfo, &procinfo);
 	free(pszCmd);
 

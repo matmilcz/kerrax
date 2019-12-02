@@ -8,13 +8,13 @@
 ///////////////////////////////////////////////////////////////////////////////
 
 // Internal functions
-static std::tstring AppendSlashIfNeeded(const TCHAR* pszDir)
+static std::tstring AppendSlashIfNeeded(const WCHAR* pszDir)
 {
 	std::tstring strDir = pszDir;
 	TCHAR chLast = strDir[strDir.length() - 1];
-	if(chLast != _T('\\'))
+	if(chLast != _M('\\'))
 	{
-		strDir += _T('\\');
+		strDir += _M('\\');
 	}
 	return strDir;
 }

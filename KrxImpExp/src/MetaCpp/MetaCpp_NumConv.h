@@ -20,7 +20,7 @@ static float BoolToFloat(bool b)
 
 static std::tstring BoolToString(bool b)
 {
-	return std::tstring(b ? _T("true") : _T("false"));
+	return std::tstring(b ? _M("true") : _M("false"));
 }
 
 static bool IntToBool(int i)
@@ -35,9 +35,12 @@ static float IntToFloat(int i)
 
 static std::tstring IntToString(int i)
 {
-	TCHAR buf[64];
+	/*CHAR buf[64];
 	_itot(i, buf, 10);
-	return buf;
+	return std::tstring(buf);*/
+
+	std::string str = std::to_string(i);
+	return std::tstring(str.begin(), str.end());
 }
 
 static bool FloatToBool(float f)
@@ -52,20 +55,22 @@ static int FloatToInt(float f)
 
 static std::tstring FloatToString(float f)
 {
-	TCHAR buf[128];
-	_stprintf(buf, _T("%g"), f);
+	/*TCHAR buf[128];
+	_stprintf(buf, ("%g"), f);
 	for(TCHAR* p = buf; *p != 0; ++p)
 	{
-		if(*p == _T(','))
-			*p = _T('.');
+		if(*p == _M(','))
+			*p = _M('.');
 	}		
-	return std::tstring(buf);
+	return std::tstring(buf);*/
+
+	return std::to_wstring(f);
 }
 		
 static bool StringToBool(const std::tstring& str)
 {
-	if(str == _T("true") || str == _T("True") || str == _T("TRUE")
-		|| str == _T("yes")  || str == _T("Yes")  || str == _T("YES"))
+	if(str == _M("true") || str == _M("True") || str == _M("TRUE")
+		|| str == _M("yes")  || str == _M("Yes")  || str == _M("YES"))
 	{
 		return true;
 	}
@@ -74,19 +79,21 @@ static bool StringToBool(const std::tstring& str)
 
 static int StringToInt(const std::tstring& str)
 {
-	TCHAR* endptr;
+	/*CHAR* endptr;
 	int i = (int) _tcstol(str.c_str(), &endptr, 10);
 	int count = (int) (endptr - str.c_str());
 	if(count != str.length() || i == LONG_MAX || i == LONG_MIN)
 	{
 		return INVALID_INT;
 	}
-	return i;
+	return i;*/
+
+	return std::stoi(str);
 }
 
 static float StringToFloat(const std::tstring& str)
 {
-	TCHAR* endptr;
+	/*TCHAR* endptr;
 	float f = (float) _tcstod(str.c_str(), &endptr);
 	int count = (int) (endptr - str.c_str());
 	if(count != str.length() || !_finite(f))
@@ -102,7 +109,9 @@ static float StringToFloat(const std::tstring& str)
 		if(count != str2.length() || !_finite(f))
 			return INVALID_FLOAT;
 	}
-	return f;
+	return f;*/
+
+	return std::stof(str);
 }
 
 // Macroses for conversion

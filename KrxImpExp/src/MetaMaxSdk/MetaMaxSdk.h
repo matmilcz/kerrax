@@ -24,7 +24,7 @@
 
 // maxsdk 15 (3ds max 2013) uses nullptr
 #if MAX_PRODUCT_VERSION_MAJOR >= 15
-#define nullptr (0)
+//#define nullptr (0)
 #endif
 
 // maxsdk headers

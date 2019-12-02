@@ -11,8 +11,8 @@
 static std::vector<std::tstring> GetSupportedSkinTypes()
 {
 	std::vector<std::tstring> skinTypes;
-	skinTypes.push_back(_T("Physique modifier"));
-	skinTypes.push_back(_T("Skin modifier"));
+	skinTypes.push_back(_M("Physique modifier"));
+	skinTypes.push_back(_M("Skin modifier"));
 	return skinTypes;
 }
 
@@ -26,13 +26,13 @@ static void ConvertToSkinObj(INode* node, const std::tstring& skinType)
 
 	// Create modifier
 	Modifier* mod = NULL;
-	if(skinType == _T("Physique modifier"))
+	if(skinType == _M("Physique modifier"))
 	{
 		mod = (Modifier*) (GetInterface()->CreateInstance(
 				OSM_CLASS_ID, Class_ID(PHYSIQUE_CLASS_ID_A, PHYSIQUE_CLASS_ID_B)));
 		GetInterface()->GetRootNode()->AttachChild(node, 1);
 	}
-	else if(skinType == _T("Skin modifier"))
+	else if(skinType == _M("Skin modifier"))
 	{
 		mod = (Modifier*) (GetInterface()->CreateInstance(OSM_CLASS_ID, SKIN_CLASSID));
 		GetInterface()->GetRootNode()->AttachChild(node, 1);
@@ -116,9 +116,9 @@ private:
 	{
 		TimeValue t = GetInterface()->GetTime();
 		
-		std::tstring modelPrefix = _T("");
+		std::tstring modelPrefix = _M("");
 		std::tstring rootBoneName = rootBone->GetName();
-		int k = (int) UCaseStr(rootBoneName).find(_T("BIP"));
+		int k = (int) UCaseStr(rootBoneName).find(_M("BIP"));
 		if(k > 0)
 			modelPrefix = rootBoneName.substr(0, k);
 		
@@ -143,12 +143,12 @@ private:
 				
 				if(createDummy)
 				{
-					std::tstring dummyName = UniqueNam(modelPrefix + _T("Dummy00"));
+					std::tstring dummyName = UniqueNam(modelPrefix + _M("Dummy00"));
 					Point3 dummyPos = bonePos + (bonePos - parentPos) / 2;
 					DummyObject* dummyObject = (DummyObject*) GetInterface()->CreateInstance(HELPER_CLASS_ID, Class_ID(DUMMY_CLASS_ID,0));
 					dummyObject->SetBox(Box3(Point3(-0.25, -0.25, -0.25), Point3(0.25, 0.25, 0.25)));
 					INode* dummy = GetInterface()->CreateObjectNode(dummyObject);
-					dummy->SetName((LPTSTR) (dummyName.c_str()));
+					dummy->SetName((LPWSTR) (dummyName.c_str()));
 					dummy->SetNodeTM(t, TransMatrix(dummyPos));
 					bone->AttachChild(dummy, 1); 
 				}					
@@ -218,11 +218,11 @@ public:
 	std::tstring GetSkinType() const
 	{
 		if(__modifier->ClassID() == SKIN_CLASSID)
-			return _T("Skin modifier");
+			return _M("Skin modifier");
 		else if(__modifier->ClassID() == Class_ID(PHYSIQUE_CLASS_ID_A, PHYSIQUE_CLASS_ID_B))
-			return _T("Physique modifier");
+			return _M("Physique modifier");
 		else
-			return _T("");
+			return _M("");
 	}	
 
 	void AddBonesToSkin(const std::vector<INode*>& bones)

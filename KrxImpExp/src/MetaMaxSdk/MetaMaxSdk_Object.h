@@ -38,7 +38,7 @@ static void ReplaceObj(INode* destNode, INode* srcNode)
 
 inline void SetObjName(INode* node, const std::tstring& name)
 {
-	node->SetName((TCHAR*) (name.c_str()));
+	node->SetName((WCHAR*) (name.c_str()));
 }
 
 inline std::tstring GetObjName(INode* node)
@@ -54,9 +54,9 @@ static INode* FindObjByName(const std::tstring& name)
 
 static std::tstring UniqueNam(const std::tstring& name)
 {
-	TSTR tstr = name.c_str();
-	GetInterface()->MakeNameUnique(tstr);
-	return tstr.data();
+	MSTR mstr = name.c_str();
+	GetInterface()->MakeNameUnique(mstr);
+	return mstr.data();
 }
 
 inline INode* RootObj()

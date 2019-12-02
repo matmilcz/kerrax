@@ -27,8 +27,8 @@ static std::tstring IntAsChar(int code)
 
 static std::tstring HexForm(int i)
 {
-	TCHAR buf[64];
-	_stprintf(buf, _T("0x%X"), i);
+	WCHAR buf[64];
+	_swprintf(buf, _M("0x%X"), i);
 	return buf;
 }
 
