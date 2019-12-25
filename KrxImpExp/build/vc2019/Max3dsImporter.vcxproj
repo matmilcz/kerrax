@@ -142,10 +142,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Meta\3dsFileLoader.meta">
+    <None Include="..\..\src\Meta\3dsFileLoader.meta">
+      <FileType>Document</FileType>
+    </None>
+    <ClCompile Include="..\..\src\Meta\3dsImporter.meta">
       <FileType>Document</FileType>
     </ClCompile>
-    <None Include="..\..\src\Meta\3dsImporter.meta" />
     <None Include="..\..\src\Meta\3dsImporterDefs.meta" />
     <None Include="..\..\src\Meta\3dsImporterDlgInput.meta" />
     <None Include="..\..\src\Meta\3dsImporterDlgOutput.meta" />

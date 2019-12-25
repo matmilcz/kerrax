@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\Meta\3dsFileLoader.meta">
-      <Filter>Meta Files</Filter>
-    </None>
     <None Include="..\..\src\Meta\3dsImporter.meta">
       <Filter>Meta Files</Filter>
     </None>
@@ -128,5 +125,8 @@
     <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Unit.h">
       <Filter>MetaMaxSdk Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Meta\3dsFileLoader.meta" />
   </ItemGroup>
 </Project>

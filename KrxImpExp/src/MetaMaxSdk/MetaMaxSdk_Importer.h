@@ -87,24 +87,24 @@ public: \
 	const TCHAR*    Category() {return _T("Scene Import");} \
 }; \
 \
-extern "C"  __declspec( dllexport ) const TCHAR* LibDescription() \
+__declspec( dllexport ) const TCHAR* LibDescription() \
 { \
 	static const std::tstring s_libdesc = ext + _T(" file importer (") + author + _T(")"); \
 	return s_libdesc.c_str(); \
 } \
 \
-extern "C" __declspec( dllexport ) int LibNumberClasses() \
+__declspec( dllexport ) int LibNumberClasses() \
 { \
 	return 1; \
 } \
 \
-extern "C" __declspec( dllexport ) ClassDesc* LibClassDesc(int i) \
+__declspec( dllexport ) ClassDesc* LibClassDesc(int i) \
 { \
 	static impname##ClassDesc theClassDesc; \
 	return &theClassDesc; \
 } \
 \
-extern "C" __declspec( dllexport ) ULONG LibVersion() \
+__declspec( dllexport ) ULONG LibVersion() \
 { \
 	return VERSION_3DSMAX; \
 } \
