@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\src\Meta\3dsImporter.meta">
-      <Filter>Meta Files</Filter>
-    </None>
     <None Include="..\..\src\Meta\3dsImporterDefs.meta">
       <Filter>Meta Files</Filter>
     </None>
@@ -51,6 +48,7 @@
     <None Include="..\..\src\Meta\SceneAnalyzer.meta">
       <Filter>Meta Files</Filter>
     </None>
+    <None Include="..\..\src\Meta\3dsFileLoader.meta" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\MetaCpp\MetaCpp.h">
@@ -127,6 +125,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\src\Meta\3dsFileLoader.meta" />
+    <ClCompile Include="..\..\src\Meta\3dsImporter.meta" />
   </ItemGroup>
 </Project>
