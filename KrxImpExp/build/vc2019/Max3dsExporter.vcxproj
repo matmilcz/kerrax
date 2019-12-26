@@ -18,6 +18,46 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\Meta\3dsExporter.meta">
+      <FileType>Document</FileType>
+    </ClCompile>
+    <None Include="..\..\src\Meta\3dsExporterDlgInput.meta" />
+    <None Include="..\..\src\Meta\3dsExporterDlgOutput.meta" />
+    <None Include="..\..\src\Meta\3dsFileSaver.meta" />
+    <None Include="..\..\src\Meta\3dsWriteChunk.meta" />
+    <None Include="..\..\src\Meta\File.meta" />
+    <None Include="..\..\src\Meta\ImpExpPathes.meta" />
+    <None Include="..\..\src\Meta\NameAnalyzer.meta" />
+    <None Include="..\..\src\Meta\ObjectStats.meta" />
+    <None Include="..\..\src\Meta\RunUIExe.meta" />
+    <None Include="..\..\src\Meta\SceneAnalyzer.meta" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Array.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Bit.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Class.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_ControlFlow.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Exception.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_File.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Function.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Numeric.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_String.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_System.h" />
+    <ClInclude Include="..\..\src\MetaCpp\MetaCpp_Var.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\Meta.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Color.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Exporter.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Material.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Matrix3.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Mesh.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Object.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Point3.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_Scene.h" />
+    <ClInclude Include="..\..\src\MetaMaxSdk\MetaMaxSdk_StdDirs.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{7B24FEE2-2771-41B6-9520-F87E807597FA}</ProjectGuid>
@@ -133,47 +173,6 @@
       <AdditionalDependencies>comctl32.lib;core.lib;geom.lib;mesh.lib;mnmath.lib;poly.lib;maxutil.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\src\Meta\3dsExporter.meta">
-      <FileType>Document</FileType>
-    </ClCompile>
-    <None Include="..\..\..\src\Meta\3dsExporterDlgInput.meta" />
-    <None Include="..\..\..\src\Meta\3dsExporterDlgOutput.meta" />
-    <None Include="..\..\..\src\Meta\3dsFileSaver.meta" />
-    <None Include="..\..\..\src\Meta\3dsWriteChunk.meta" />
-    <None Include="..\..\..\src\Meta\File.meta" />
-    <None Include="..\..\..\src\Meta\ImpExpPathes.meta" />
-    <None Include="..\..\..\src\Meta\NameAnalyzer.meta" />
-    <None Include="..\..\..\src\Meta\ObjectStats.meta" />
-    <None Include="..\..\..\src\Meta\RunUIExe.meta" />
-    <None Include="..\..\..\src\Meta\SceneAnalyzer.meta" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Array.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Bit.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Class.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_ControlFlow.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Exception.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_File.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Function.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Numeric.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_String.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_System.h" />
-    <ClInclude Include="..\..\..\src\MetaCpp\MetaCpp_Var.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\Meta.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Color.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Exporter.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Importer.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Material.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Matrix3.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Mesh.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Object.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Point3.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_Scene.h" />
-    <ClInclude Include="..\..\..\src\MetaMaxSdk\MetaMaxSdk_StdDirs.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
